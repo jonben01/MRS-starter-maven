@@ -5,13 +5,17 @@ import dk.easv.mrs.BE.Movie;
 //java imports
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.nio.file.StandardOpenOption.APPEND;
+
 public class MovieDAO_File implements IMovieDataAccess {
 
     private static final String MOVIES_FILE = "data/movie_titles.txt";
+    private Path filePath = Paths.get(MOVIES_FILE);
 
     //The @Override annotation is not required, but is recommended for readability
     // and to force the compiler to check and generate error msg. if needed etc.
@@ -43,8 +47,19 @@ public class MovieDAO_File implements IMovieDataAccess {
     }
 
     @Override
-    public Movie createMovie(String title, int year) throws Exception {
-        return null;
+    public Movie createMovie(Movie newMovie) throws Exception {
+       List<String> movies = Files.readAllLines(filePath);
+
+       if(!movies.isEmpty()) {
+           //get next id
+           String[] separatedLine = movies.get(movies.size() - 1).split(",");
+           int nextId = Integer.parseInt(separatedLine[0])+1;
+           String newMovieLine = nextId + "," + newMovie.getYear() +"," + newMovie.getTitle();
+           Files.write(filePath, (newMovieLine + "\r\n").getBytes(), APPEND);
+
+           return new Movie(nextId, newMovie.getYear(), newMovie.getTitle());
+       }
+       return null;
     }
 
     @Override
