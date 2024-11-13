@@ -30,4 +30,10 @@ public class MovieModel {
         moviesToBeViewed.clear();
         moviesToBeViewed.addAll(searchResults);
     }
+    //create movie, called from controller
+    public Movie createMovie(Movie newMovie) throws Exception {
+        Movie movieCreated = movieManager.createMovie(newMovie);
+        moviesToBeViewed.add(movieCreated);
+        return movieCreated;
+    }
 }
