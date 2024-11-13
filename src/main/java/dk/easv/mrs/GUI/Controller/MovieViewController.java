@@ -1,7 +1,9 @@
 package dk.easv.mrs.GUI.Controller;
 
+//PROJECT IMPORTS
 import dk.easv.mrs.BE.Movie;
 import dk.easv.mrs.GUI.Model.MovieModel;
+//JAVA IMPORTS
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
@@ -15,6 +17,7 @@ public class MovieViewController implements Initializable {
     public TextField txtMovieSearch;
     public ListView<Movie> lstMovies;
     private MovieModel movieModel;
+
 
     public MovieViewController()  {
 
