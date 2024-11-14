@@ -17765,11 +17765,3 @@
 17772,2015,Django Unchained
 17773,2015,Django Unchained
 17774,2015,Django Unchained
-17775,100,random random = new random
-17776,100,random random
-17777,2024,add
-17778,2024,add
-17779,2024,add
-17780,2024,add
-17781,2024,add
-17782,2,fem
