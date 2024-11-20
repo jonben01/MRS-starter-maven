@@ -50,8 +50,6 @@ public class MovieViewController implements Initializable {
         colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
         tblMovies.setItems(movieModel.getObservableMovies());
 
-        lstMovies.setItems(movieModel.getObservableMovies());
-
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 movieModel.searchMovie(newValue);
@@ -89,7 +87,7 @@ public class MovieViewController implements Initializable {
         //System.out.println(tblMovies.getSelectionModel().getSelectedItem().toString());
         if (movieToBeDeleted != null) {
             movieModel.deleteMovie(movieToBeDeleted);
-            lstMovies.setItems(movieModel.getObservableMovies());
+            tblMovies.setItems(movieModel.getObservableMovies());
 
 
         }
