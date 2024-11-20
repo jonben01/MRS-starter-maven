@@ -30,7 +30,7 @@ public class MyDBConnector {
     public static void main(String[] args) throws SQLException {
         MyDBConnector dBConnector = new MyDBConnector();
        try (Connection connection = dBConnector.getConnection()) {
-           System.out.println("is it open" + !connection.isClosed());
+           System.out.println("open open open" + !connection.isClosed());
        }
     }
 }

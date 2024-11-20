@@ -6,14 +6,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="477.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.mrs.GUI.Controller.MovieViewController">
+<AnchorPane prefHeight="477.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.mrs.GUI.Controller.MovieViewController">
    <children>
       <TextField fx:id="txtMovieSearch" layoutX="14.0" layoutY="99.0" prefHeight="26.0" prefWidth="238.0" promptText="Search.." AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="99.0" />
       <TextField fx:id="txtTitle" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="237.0" promptText="Movie title" />
       <TextField fx:id="txtYear" layoutX="14.0" layoutY="49.0" promptText="Release year" />
       <Button fx:id="btnAddMovie" layoutX="177.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnHandleAdd" prefHeight="26.0" prefWidth="75.0" text="Add movie" />
       <Button fx:id="btnDelete" layoutX="273.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnHandleDelete" prefHeight="49.0" prefWidth="81.0" text="DELETE" />
-      <Button layoutX="273.0" layoutY="74.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="81.0" text="UPDATE" />
+      <Button fx:id="btnUpdate" layoutX="273.0" layoutY="74.0" mnemonicParsing="false" onAction="#btnHandleUpdate" prefHeight="49.0" prefWidth="81.0" text="UPDATE" />
       <TableView fx:id="tblMovies" layoutX="14.0" layoutY="131.0" prefHeight="332.0" prefWidth="341.0">
         <columns>
           <TableColumn fx:id="colTitle" prefWidth="150.0" text="Title" />

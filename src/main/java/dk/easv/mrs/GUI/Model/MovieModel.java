@@ -43,4 +43,13 @@ public class MovieModel {
         moviesToBeViewed.remove(movieToBeDeleted);
         movieManager.deleteMovie(movieToBeDeleted);
     }
+
+    public void updateMovie(Movie movieToBeUpdated) throws Exception {
+        movieManager.updateMovie(movieToBeUpdated);
+
+        Movie movie = moviesToBeViewed.get(moviesToBeViewed.indexOf(movieToBeUpdated));
+        movie.setTitle(movieToBeUpdated.getTitle());
+        movie.setYear(movieToBeUpdated.getYear());
+
+    }
 }

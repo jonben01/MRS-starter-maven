@@ -92,4 +92,14 @@ public class MovieViewController implements Initializable {
 
         }
     }
+
+    public void btnHandleUpdate(ActionEvent actionEvent) throws Exception {
+        Movie movieToBeUpdated = tblMovies.getSelectionModel().getSelectedItem();
+        if (movieToBeUpdated != null) {
+            movieToBeUpdated.setTitle(txtTitle.getText());
+            movieToBeUpdated.setYear(Integer.parseInt(txtYear.getText()));
+            movieModel.updateMovie(movieToBeUpdated);
+            tblMovies.refresh();
+        }
+    }
 }
