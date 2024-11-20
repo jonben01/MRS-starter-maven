@@ -5,6 +5,8 @@ import dk.easv.mrs.BLL.MovieManager;
 //JAVA IMPORTS
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
+
 import java.util.List;
 
 public class MovieModel {
@@ -35,5 +37,10 @@ public class MovieModel {
         Movie movieCreated = movieManager.createMovie(newMovie);
         moviesToBeViewed.add(movieCreated);
         return movieCreated;
+    }
+
+    public void deleteMovie(Movie movieToBeDeleted) throws Exception {
+        moviesToBeViewed.remove(movieToBeDeleted);
+        movieManager.deleteMovie(movieToBeDeleted);
     }
 }

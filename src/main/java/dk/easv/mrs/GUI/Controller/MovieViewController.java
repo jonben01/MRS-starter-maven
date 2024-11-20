@@ -7,9 +7,9 @@ import dk.easv.mrs.GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +21,14 @@ public class MovieViewController implements Initializable {
     private MovieModel movieModel;
     @FXML
     public TextField txtTitle, txtYear;
+    @FXML
+    private TableView<Movie> tblMovies;
+    @FXML
+    private TableColumn<Movie, String> colTitle;
+    @FXML
+    private TableColumn<Movie, Integer> colYear;
+    @FXML
+    private Button btnDelete;
 
 
     public MovieViewController()  {
@@ -37,6 +45,11 @@ public class MovieViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
+        tblMovies.setItems(movieModel.getObservableMovies());
+
         lstMovies.setItems(movieModel.getObservableMovies());
 
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
@@ -68,5 +81,17 @@ public class MovieViewController implements Initializable {
         //call model to create movie in DAL
         movieModel.createMovie(newMovie);
 
+    }
+
+    @FXML
+    public void btnHandleDelete(ActionEvent actionEvent) throws Exception {
+        Movie movieToBeDeleted = tblMovies.getSelectionModel().getSelectedItem();
+        //System.out.println(tblMovies.getSelectionModel().getSelectedItem().toString());
+        if (movieToBeDeleted != null) {
+            movieModel.deleteMovie(movieToBeDeleted);
+            lstMovies.setItems(movieModel.getObservableMovies());
+
+
+        }
     }
 }

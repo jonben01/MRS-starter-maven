@@ -1,6 +1,5 @@
 package dk.easv.mrs.DAL;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dk.easv.mrs.BE.Movie;
 
 import java.sql.Connection;
@@ -10,11 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieDAO_DB {
+public class MovieDAO_TempDBFile {
 
     private MyDBConnector dbConnector;
 
-    public MovieDAO_DB() {
+    public MovieDAO_TempDBFile() {
         dbConnector = new MyDBConnector();
     }
 
@@ -42,8 +41,8 @@ public class MovieDAO_DB {
             return allMovies;
         }
     public static void main(String[] args) throws SQLException {
-        MovieDAO_DB MovieDAO_db = new MovieDAO_DB();
-        List<Movie> allMovies = MovieDAO_db.getAllMovies();
+        MovieDAO_TempDBFile movieDAO_Temp_dbFile = new MovieDAO_TempDBFile();
+        List<Movie> allMovies = movieDAO_Temp_dbFile.getAllMovies();
 
         System.out.println(allMovies);
     }

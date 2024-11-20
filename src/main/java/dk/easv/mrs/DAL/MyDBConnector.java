@@ -2,6 +2,7 @@ package dk.easv.mrs.DAL;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+//import sun.security.krb5.Credentials;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class MyDBConnector {
     public MyDBConnector() {
         dataSource = new SQLServerDataSource();
         //LOKAL SERVER, MEN DEN FINDES IKKE :)
-        dataSource.setServerName("127.0.0.1");
+        dataSource.setServerName("localhost");
         dataSource.setDatabaseName("MRS");
         dataSource.setUser("root");
         dataSource.setPassword("");
